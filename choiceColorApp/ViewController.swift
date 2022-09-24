@@ -28,17 +28,44 @@ class ViewController: UIViewController {
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         
+        setColor()
+        
+        setValue(for: redLable, greenLable, blueLable)
+
+    }
+
+    @IBAction func rgbSlider(_ sender: UISlider) {
+        setColor()
+        
+        setValue(for: redLable, greenLable, blueLable)
+    }
+    
+    private func setColor() {
         colorView.backgroundColor = UIColor (
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
             blue: CGFloat(blueSlider.value),
             alpha: 1
         )
-        
-
     }
-
-
+    
+    private func setValue(for lables: UILabel...) {
+        lables.forEach { lable in
+            switch lable {
+            case redLable:
+                lable.text = string(from: redSlider)
+            case greenLable:
+                lable.text = string(from: greenSlider)
+            default:
+                lable.text = string(from: blueSlider)
+            }
+        }
+    }
+    
+    private func string(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
+    }
+    
 }
 
  
