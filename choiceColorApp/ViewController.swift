@@ -31,9 +31,10 @@ class ViewController: UIViewController {
         setColor()
         
         setValue(for: redLable, greenLable, blueLable)
-
+        
+        
     }
-
+    
     @IBAction func rgbSlider(_ sender: UISlider) {
         setColor()
         
@@ -45,7 +46,7 @@ class ViewController: UIViewController {
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
             blue: CGFloat(blueSlider.value),
-            alpha: 1
+            alpha: 1.0
         )
     }
     
@@ -63,9 +64,7 @@ class ViewController: UIViewController {
     }
     
     private func string(from slider: UISlider) -> String {
-        String(format: "%.2f", slider.value)
+        String(slider.value)
     }
-    
 }
 
- 
